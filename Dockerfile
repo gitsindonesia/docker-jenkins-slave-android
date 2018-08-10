@@ -2,6 +2,8 @@ FROM jenkins/ssh-slave
 MAINTAINER Ibnu S. Wardy <punyaibun@gmail.com>
 LABEL Description="This is a jenkins slave project for Android" Vendor="GITS Indonesia" Version="1.0"
 
+RUN apt-get update && apt-get install -y apt-transport-https
+
 # RUN apt-get update && apt-get install -y default-jre && apt-get install -y default-jdk
 
 # Install Git and dependencies
