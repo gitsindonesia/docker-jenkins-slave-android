@@ -20,7 +20,7 @@ ENV ANDROID_HOME="/androidsdk/android-sdk-linux" \
 
 # Create a non-root user
 # RUN useradd -m user
-USER jenkins
+# USER jenkins
 WORKDIR /androidsdk
 
 # Download Android SDK
@@ -30,6 +30,8 @@ RUN mkdir "$ANDROID_HOME" .android \
  && unzip sdk.zip \
  && rm sdk.zip \
  && yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses
+
+RUN chown -R jenkins:jenkins /androidsdk
 
 # Install Gradle
 RUN wget $GRADLE_URL -O gradle.zip \
