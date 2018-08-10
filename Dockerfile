@@ -14,14 +14,14 @@ RUN apt-get update && apt-get install -y apt-transport-https
 #  && rm -rf /var/lib/apt/lists /var/cache/apt
 
 # Set up environment variables
-ENV ANDROID_HOME="/home/user/android-sdk-linux" \
+ENV ANDROID_HOME="/androidsdk/android-sdk-linux" \
     SDK_URL="https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip" \
     GRADLE_URL="https://services.gradle.org/distributions/gradle-4.5.1-all.zip"
 
 # Create a non-root user
-RUN useradd -m user
-USER user
-WORKDIR /home/user
+# RUN useradd -m user
+# USER user
+WORKDIR /androidsdk
 
 # Download Android SDK
 RUN mkdir "$ANDROID_HOME" .android \
